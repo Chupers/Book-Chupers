@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup]="searchForm" class="searchForm">
+        <mat-form-field class="search-element">
+            <mat-label>Input</mat-label>
+            <input formControlName="placeToGo" matInput>
+          </mat-form-field>
+        <mat-form-field class="search-element">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate formControlName="startDate" placeholder="Start date">
+              <input matEndDate formControlName="endDate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </form>
+    
+</div>

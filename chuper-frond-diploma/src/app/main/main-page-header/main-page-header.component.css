@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    background-color:#2d303d;
+    align-items: center;
+}
+.nav-element{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.nav-host-element {
+    margin-left: auto;
+    background-color: #e8324f;
+    color: #ececec;
+    font-size: 0.9rem;
+    padding: 0.9rem;
+    border-radius: 1rem;
+}
+
+.nav-login-element{
+    color: #ececec;
+    margin-right: 5rem;
+}
+
+.nav-logo-element{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #ececec;
+}
+mat-icon{
+    font-size: 2rem;
+}

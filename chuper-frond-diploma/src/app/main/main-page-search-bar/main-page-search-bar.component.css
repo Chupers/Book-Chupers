@@ -1,0 +1,12 @@
+.searchForm{
+    display: flex;
+    align-items: baseline;
+}
+.search-element{
+    margin: 1rem;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
