@@ -18,7 +18,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatCardModule} from '@angular/material/card';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatInputModule} from '@angular/material/input';
     MainPageRecommendationByCityComponent,
     MainPageRecommendationByCategoryComponent,
     FooterComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import {MatInputModule} from '@angular/material/input';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

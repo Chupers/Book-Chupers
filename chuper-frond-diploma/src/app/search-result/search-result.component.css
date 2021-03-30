@@ -1,0 +1,83 @@
+.container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.map-container{
+    margin: 1.5rem;
+    flex-grow: 1;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.house-cards-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.house-card{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+    border-radius: 1rem;
+    margin: 1.5rem;
+}
+
+.house-image{
+    height: 15rem;
+    border-radius: 1rem;
+
+}
+
+.card-content{
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.characteriscit-container{
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.characteristic{
+    margin: 0.5rem;
+    color: gray;
+}
+
+.card-header{
+    font-weight:500;
+    font-size: 1.2rem;
+    color: #2d303d;
+}
+
+.reviews-price-container{
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.price-container{
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.review{
+    margin-right: 1rem;
+    color: gray;
+    display: flex;
+    flex-direction: row;
+}
+
+.star-icon {
+    color: #e8324f;
+}

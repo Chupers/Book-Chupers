@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 4rem;
+    justify-content: center;
+}
+
+.category-card{
+    margin: 1rem;
+    height: 18rem;
+    width: 18rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #2d303d;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: url(https://a0.muscache.com/im/pictures/10a638e1-6aff-4313-8033-1275cec83987.jpg?im_w=480);
+    border-radius: 1rem;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.card-text{
+    margin: 1rem;
+}

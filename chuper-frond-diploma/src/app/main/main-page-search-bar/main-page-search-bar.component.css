@@ -1,6 +1,13 @@
 .searchForm{
-    display: flex;
     align-items: baseline;
+    margin-top: 10rem;
+    box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 0.5rem;
+    margin: 0.5rem;
 }
 .search-element{
     margin: 1rem;
@@ -9,4 +16,14 @@
 .container{
     display: flex;
     justify-content: center;
+    margin: 4rem;
+}
+
+.sumbit-button{
+    background-color: #e8324f;
+    color: #ececec;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: pointer;
 }
