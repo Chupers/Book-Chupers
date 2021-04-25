@@ -20,6 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { DetailsPageComponent } from './details/details-page/details-page.component';
+import { PageHeaderComponent } from './details/page-header/page-header.component';
+import { BecameHostComponent } from './host/became-host/became-host.component';
+import {MatSelectModule} from '@angular/material/select';
+import { LoginComponent } from './dialog/login/login.component';
+import { RegistationComponent } from './dialog/registation/registation.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { TokenInterceptor } from './TokenInterceptor';
 
 @NgModule({
   declarations: [
@@ -31,6 +40,11 @@ import { SearchResultComponent } from './search-result/search-result.component';
     MainPageRecommendationByCategoryComponent,
     FooterComponent,
     SearchResultComponent,
+    DetailsPageComponent,
+    PageHeaderComponent,
+    BecameHostComponent,
+    LoginComponent,
+    RegistationComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,15 +52,22 @@ import { SearchResultComponent } from './search-result/search-result.component';
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
+    HttpClientModule,
     MatButtonModule,
+    MatDialogModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
+    MatSelectModule,
   ],
-  providers: [],
+
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
+  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

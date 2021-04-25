@@ -1,0 +1,179 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 16rem 2rem 15rem;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 1.6rem;
+    justify-content: flex-start;
+}
+
+.subtitle{
+    color: gray;
+    margin-top: 1rem;
+}
+
+.image-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+
+.addition-image{
+    margin: 0.3rem;
+    height: 10rem;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.addition-image-container{
+    flex-grow: 1;
+}
+
+.main-image{
+    height: 21.3rem;
+    width: auto;
+    margin: 0.3rem;
+    flex-grow: 1;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.right-botton{
+    border-bottom-right-radius: 1rem;
+}
+
+.right-up{
+    border-radius: 0rem 1rem 0rem 0rem;
+}
+
+.hosted-title{
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.content-container{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.description-container{
+    display: flex;
+    flex-direction: row;
+    color: gray;
+    margin-top: 1rem;
+}
+
+.price{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.review{
+    display: flex;
+    flex-direction: row;
+}
+
+.reservation-menu{
+    width: 20rem;
+    box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+    border-radius: 1rem;
+    margin-right: 4rem;
+    margin-left: auto;
+    align-items:center;
+    justify-content: space-between;
+
+}
+
+.info-res{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.searchForm{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.details-description{
+    margin-top: 2rem;
+    font-weight: 300;
+    color: black;
+    font-size: 1.1rem;
+}
+
+.search-element{
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    border: 2px solid gray
+}
+
+.amenities-title{
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.amenities-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.amenities{
+    margin-right: 5rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 10rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.sumbit-button{
+    background-color: #e8324f;
+    color: #ececec;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.price-check{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.service-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.5rem 1rem
+}
+
+.tolal-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+    
+}

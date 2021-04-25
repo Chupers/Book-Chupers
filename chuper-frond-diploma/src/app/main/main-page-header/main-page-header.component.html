@@ -1,9 +1,10 @@
 <div class="container">
     <div class="nav-logo-element nav-element">EASYHOME</div>
-    <div class="nav-host-element nav-element">Кent an apartment</div>
+    <button class="nav-host-element nav-element" (click)="navigateToBeHost()">Кent an apartment</button>
     <mat-icon  [matMenuTriggerFor]="menu" class="nav-login-element nav-element">account_circle</mat-icon>
 </div>
 <mat-menu #menu="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+    <button mat-menu-item *ngIf="!isLogin" (click)="signUp()">Sign Up</button>
+    <button mat-menu-item *ngIf="!isLogin" (click)="login()">Sign In</button>
+    <button mat-menu-item *ngIf="isLogin" (click)="logout()">Logout</button>
+</mat-menu>

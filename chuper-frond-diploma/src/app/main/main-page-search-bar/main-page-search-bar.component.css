@@ -26,4 +26,8 @@
     border-radius: 1rem;
     margin: 1rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
 }

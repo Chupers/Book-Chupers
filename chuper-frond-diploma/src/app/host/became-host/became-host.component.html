@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="host-form">
+        <form [formGroup]="hostForm" >
+            <div class="form-field">
+                <div class="form-field-text">
+                    Where’s your place located?
+                </div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Where’s your place located?</mat-label>
+                    <input formControlName="located" matInput>
+                  </mat-form-field>
+            </div>
+            <div class="form-field">
+                <div class="form-field-text">
+                    What kind of place are you listing?
+                </div>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>What kind of place are you listing?</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let type of houseTypes" [value]="type.value">
+                        {{type.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="form-field">
+                <div class="form-field-text">
+                    How many guests can your place accommodate?
+                </div>
+
+            </div>
+             
+        </form>
+    </div>
+    <div class="became-host-text">
+        Became host
+    </div>
+</div>

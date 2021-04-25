@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="title">Квартира-студия в самом центре Гомеля</div>
+    <div class="subtitle">Grodno,Grodno region, Belarus</div>
+
+    <div class="image-container">
+        <img class="main-image" src="https://a0.muscache.com/im/pictures/62f5bbfc-fe52-44f8-8e35-399ecdf52d03.jpg?im_w=1200">
+        <div class="addition-image-container">
+            <img class="addition-image" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
+            <img class="addition-image" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
+        </div>
+        <div class="addition-image-container">
+            <img class="addition-image right-up" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
+            <img class="addition-image right-botton" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div class="info-container">
+            <div class="hosted-title">Entire apartment hosted by NAME</div>
+            <div class="description-container">
+                <div class="description">4 guests</div>
+                <div class="description">1 bedroom</div>
+                <div class="description">2 beds</div>
+                <div class="description">1 bath</div>
+            </div>
+            <div class="details-description">
+                Комфортабельная 1-я квартира со вторым ярусом, спальные места: 2+2. Кроме этого, есть набор посуды на кухне, полотенца и постельное белье, гигиенические принадлежности в ванной. Квартира очень уютнаяi.Все подобрано для максимального комфорта и удобства. В шаговой доступности находится Немига, самое сердце Минска, где можно прочувствовать ночную жизнь столицы, а так же различные сети фастфудов, бары, рестораны, кафе, кинотеатр, метро и остановки общественного транспорта.
+            </div>
+            <div class="amenities-title">Amenities</div>
+            <div class="amenities-container">
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Free street parking
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Kitchen
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Washer
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Essentials
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+                <div class="amenities">
+                    <mat-icon>wifi</mat-icon>
+                    Wifi
+                </div>
+            </div>
+        </div>
+
+        <div class="reservation-menu">
+            <form [formGroup]="searchForm" class="searchForm">
+                <div class="info-res">
+                    <div class="price">$14/night</div>
+                    <div class="review">
+                        <mat-icon>star</mat-icon>
+                        <div class="review-mark">4.0</div>
+                        <div class="review-count">(15)</div>
+                    </div>
+                </div>
+                <mat-form-field class="search-element">
+                    <mat-label>Input</mat-label>
+                    <input formControlName="placeToGo" matInput>
+                  </mat-form-field>
+                <mat-form-field class="search-element">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate formControlName="startDate" placeholder="Start date">
+                      <input matEndDate formControlName="endDate" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+
+                <button *ngIf="!availabilityCheck" (click)="checkAvailability()" class="sumbit-button">Check availability</button>
+                <button *ngIf="availabilityCheck" class="sumbit-button">Reserv</button>
+                <div class="price-check" *ngIf="availabilityCheck">
+                    <div class="service-price">
+                        <div class="service">
+                            £15 x 2 nights
+                        </div>
+                        <div class="price">
+                            30
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="service">
+                            Cleaning fee
+                        </div>
+                        <div class="price">
+                            10
+                        </div>
+                    </div>
+                    <div class="tolal-price">
+                        <div class="service">
+                            Total
+                        </div>
+                        <div class="price">
+                            40
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>

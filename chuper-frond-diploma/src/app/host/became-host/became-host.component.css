@@ -1,0 +1,20 @@
+.container{
+    background-image: url(https://img.fonwall.ru/o/83/telefon-budka-krasnaya-more.jpg);
+    height: 100%;   
+    background-size: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.became-host-text{
+    color: #4e4d4df5;
+    font-weight:700;
+    font-size: 5rem;
+    margin-right: 5rem;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+}

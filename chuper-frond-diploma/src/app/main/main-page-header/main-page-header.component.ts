@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { LoginComponent } from 'src/app/dialog/login/login.component';
+import { RegistationComponent } from 'src/app/dialog/registation/registation.component';
+import { SecurityService } from 'src/app/shared/security.service';
 
 @Component({
   selector: 'app-main-page-header',
@@ -7,9 +13,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageHeaderComponent implements OnInit {
 
-  constructor() { }
+  isAdmin : Boolean = false
+  isLogin : Boolean = false
+
+  constructor(public loginService:SecurityService,
+    public dialog:MatDialog,private _route:ActivatedRoute,private _router: Router) { }
 
   ngOnInit(): void {
+    this.isLogin = this.loginService.isLoggedIn();
   }
+
+  login(){
+    const dialogRef = this.dialog.open(LoginComponent)
+    dialogRef.afterClosed().subscribe(data => {
+      this.isLogin = this.loginService.isLoggedIn()
+    })
+  }
+
+  navigateToBeHost(){
+    if(this.isLogin){
+      this._router.navigate(['/became-host'])
+    }
+    else{
+      this.login()
+    }
+  }
+
+  logout(){
+    this.loginService.logout();
+    window.location.reload();
+  }
+
+  signUp(){
+    const dialogRef = this.dialog.open(RegistationComponent)
+    dialogRef.afterClosed().subscribe(data =>{
+      this.isLogin = this.loginService.isLoggedIn()
+    })
+  }
+
+ 
+  
+
 
 }
