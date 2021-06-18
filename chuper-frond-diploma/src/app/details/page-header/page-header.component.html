@@ -1,90 +1,75 @@
 <div class="container">
-    <div class="title">Квартира-студия в самом центре Гомеля</div>
-    <div class="subtitle">Grodno,Grodno region, Belarus</div>
+    <div class="title">{{accommodation.accommodationInfo.name}}</div>
+    <div class="subtitle">{{accommodation.accommodationInfo.address}},{{accommodation.accommodationInfo.city}}, {{accommodation.accommodationInfo.country}}</div>
 
     <div class="image-container">
-        <img class="main-image" src="https://a0.muscache.com/im/pictures/62f5bbfc-fe52-44f8-8e35-399ecdf52d03.jpg?im_w=1200">
+        <img class="main-image" src="{{getImage(0)}}">
         <div class="addition-image-container">
-            <img class="addition-image" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
-            <img class="addition-image" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
-        </div>
-        <div class="addition-image-container">
-            <img class="addition-image right-up" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
-            <img class="addition-image right-botton" src="https://a0.muscache.com/im/pictures/df79dcc0-4798-4157-b923-30e060431f06.jpg?im_w=720">
+            <img class="addition-image" src="{{getImage(1)}}">
+            <img class="addition-image" src="{{getImage(2)}}">
+            <img class="addition-image" src="{{getImage(3)}}">
+            <img class="addition-image" src="{{getImage(4)}}">
         </div>
     </div>
 
     <div class="content-container">
         <div class="info-container">
-            <div class="hosted-title">Entire apartment hosted by NAME</div>
+            <div class="hosted-title">{{accommodation.accommodationInfo.name}}</div>
             <div class="description-container">
-                <div class="description">4 guests</div>
-                <div class="description">1 bedroom</div>
-                <div class="description">2 beds</div>
-                <div class="description">1 bath</div>
+                <div class="description">{{accommodation.accommodationInfo.guestCount}} guests</div>
+                <div class="description">{{accommodation.accommodationInfo.roomCount}} room</div>
+                <div class="description">{{accommodation.accommodationInfo.bedCount}} beds</div>
             </div>
             <div class="details-description">
-                Комфортабельная 1-я квартира со вторым ярусом, спальные места: 2+2. Кроме этого, есть набор посуды на кухне, полотенца и постельное белье, гигиенические принадлежности в ванной. Квартира очень уютнаяi.Все подобрано для максимального комфорта и удобства. В шаговой доступности находится Немига, самое сердце Минска, где можно прочувствовать ночную жизнь столицы, а так же различные сети фастфудов, бары, рестораны, кафе, кинотеатр, метро и остановки общественного транспорта.
+                {{accommodation.accommodationInfo.description}}
             </div>
             <div class="amenities-title">Amenities</div>
             <div class="amenities-container">
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Free street parking
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Kitchen
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Washer
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Essentials
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
-                </div>
-                <div class="amenities">
-                    <mat-icon>wifi</mat-icon>
-                    Wifi
+                <div *ngFor="let item of accommodation.accommodationCharacteristicList" class="amenities">
+                    <mat-icon>{{item.iconName}}</mat-icon>
+                    {{item.characteristicText}}
                 </div>
             </div>
-        </div>
 
+            <div class="feedback-container">
+                <mat-card  *ngFor="let item of accommodation.feedbackList">
+                    {{item.feedbackText}}
+                    {{item.countStar}} 
+                    <mat-icon class="ratingStar">star_rate</mat-icon>
+                </mat-card>
+            </div>
+            <div class="comment-container">
+                Leave a comment
+                <form [formGroup]="commentForm"  class="comment-form">
+                    <div class="star-bar" (mouseleave)="clearStar()">
+                        <div *ngFor="let star of stars" (click)="selectStar(star.value)" (mouseenter)="fillStar(star.value)">
+                            <mat-icon class="ratingStar" *ngIf="star.isFilled">star_rate</mat-icon>
+                            <mat-icon  class="ratingStar" *ngIf="!star.isFilled">star_border</mat-icon>
+                        </div>
+                    </div>
+                <mat-form-field class="form-element">
+                      <mat-label>Leave a comment</mat-label>
+                      <textarea formControlName="text" matInput placeholder="Ex. It makes me feel..."></textarea>
+                </mat-form-field>
+                <button mat-raised-button (click)="sentFeedback()"> Leave comment</button>
+                  </form>
+            </div>
+        </div>
+        <!-- Начало -->
         <div class="reservation-menu">
             <form [formGroup]="searchForm" class="searchForm">
                 <div class="info-res">
-                    <div class="price">$14/night</div>
+                    <div class="price">${{accommodation.accommodationInfo.pricePerDay}}/night</div>
                     <div class="review">
                         <mat-icon>star</mat-icon>
-                        <div class="review-mark">4.0</div>
-                        <div class="review-count">(15)</div>
+                        <div class="review-mark">{{accommodation.rating}}</div>
+                        <div class="review-count">({{accommodation.countReview}})</div>
                     </div>
                 </div>
-                <mat-form-field class="search-element">
+                <!-- <mat-form-field class="search-element">
                     <mat-label>Input</mat-label>
                     <input formControlName="placeToGo" matInput>
-                  </mat-form-field>
+                  </mat-form-field> -->
                 <mat-form-field class="search-element">
                     <mat-label>Enter a date range</mat-label>
                     <mat-date-range-input [rangePicker]="picker">
@@ -96,22 +81,11 @@
                 </mat-form-field>
 
                 <button *ngIf="!availabilityCheck" (click)="checkAvailability()" class="sumbit-button">Check availability</button>
-                <button *ngIf="availabilityCheck" class="sumbit-button">Reserv</button>
+                <button *ngIf="availabilityCheck" (click)="reserv()" class="sumbit-button">Reserv</button>
                 <div class="price-check" *ngIf="availabilityCheck">
                     <div class="service-price">
                         <div class="service">
-                            £15 x 2 nights
-                        </div>
-                        <div class="price">
-                            30
-                        </div>
-                    </div>
-                    <div class="service-price">
-                        <div class="service">
-                            Cleaning fee
-                        </div>
-                        <div class="price">
-                            10
+                            $ {{accommodation.accommodationInfo.pricePerDay}} x  {{countDay}} nights
                         </div>
                     </div>
                     <div class="tolal-price">
@@ -119,12 +93,15 @@
                             Total
                         </div>
                         <div class="price">
-                            40
+                            {{accommodation.accommodationInfo.pricePerDay *countDay}} $
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <!-- Конец -->
     </div>
+
+    
     
 </div>

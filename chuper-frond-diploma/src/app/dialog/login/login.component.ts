@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
                             this.loginForm.controls["password"].value)
                             .subscribe( response => {
                               localStorage.setItem("ACCESS_TOKEN",response.headers.get('Authorization'));
+                              window.location.reload()
                               this.dialogRef.close();
                             });
    

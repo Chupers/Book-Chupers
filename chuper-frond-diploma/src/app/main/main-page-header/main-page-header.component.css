@@ -2,6 +2,8 @@
     display: flex;
     background-color:#2d303d;
     align-items: center;
+    justify-content: flex-end;
+    height: 5rem;
 }
 .nav-element{
     margin-top: 1rem;
@@ -10,23 +12,32 @@
 }
 
 .nav-host-element {
-    margin-left: auto;
-    background-color: #e8324f;
-    color: #ececec;
-    font-size: 0.9rem;
+    color: #e8324f;
+    
+    font-size: 1.2rem;
     padding: 0.9rem;
     border-radius: 1rem;
+    margin-right: 10rem;
+    width: 10rem;
 }
 
 .nav-login-element{
     color: #ececec;
+    padding: 0.9rem;
     margin-right: 5rem;
 }
+.account-name{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem;
+}
+
 
 .nav-logo-element{
     font-weight: 600;
     font-size: 1.5rem;
     color: #ececec;
+    margin-right: 70rem;
 }
 mat-icon{
     font-size: 2rem;

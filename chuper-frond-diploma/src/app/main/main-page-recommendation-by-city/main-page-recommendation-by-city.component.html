@@ -1,12 +1,3 @@
 <div class="container">
-   <div class="city-card">Minsk</div>
-   <div class="city-card">Brest</div>
-   <div class="city-card">Gomel</div>
-   <div class="city-card">Berlin</div>
-   <div class="city-card">Moscow</div>
-   <div class="city-card">New Your</div>
-   <div class="city-card">Milan</div>
-   <div class="city-card">Paris</div>
-   <div class="city-card">Barcelona</div>
-   <div class="city-card">Dublin</div>
+   <div class="city-card" *ngFor="let item of cityList" (click)="select(item)">{{item}}</div>
 </div>

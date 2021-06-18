@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page-recommendation-by-city',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageRecommendationByCityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
   }
 
+  select(value:string){
+    this._router.navigate(['/search',value])
+  }
+
+  
+  cityList : string[] = ["Minsk","Brest","Gomel","Grodno","Mogilev","London","Barselona","Paris","Tokio","Vankuver"]
 }

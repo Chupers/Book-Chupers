@@ -21,7 +21,10 @@
     "@angular/platform-browser": "~11.2.4",
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
+    "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "angular-star-rating": "^3.0.8",
     "mapbox-gl": "^2.2.0",
+    "ngx-bootstrap": "^6.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

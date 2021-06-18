@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page-search-bar',
@@ -10,7 +11,7 @@ export class MainPageSearchBarComponent implements OnInit {
 
   searchForm: FormGroup;
 
-  constructor( private _formBuilder: FormBuilder) {
+  constructor( private _formBuilder: FormBuilder,private _router: Router) {
     this.searchForm  =  this._formBuilder.group({
       placeToGo: ['', Validators.required],
       startDate:['',Validators.required],
@@ -20,6 +21,10 @@ export class MainPageSearchBarComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  submit(){
+    this._router.navigate(['/search',this.searchForm.controls["placeToGo"].value])
   }
 
 }

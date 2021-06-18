@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="house-card" *ngFor="let item of accommodations" >
+        <mat-icon *ngIf="!item.favorite" (click)="markFavorite(item)" class="favorite_icon">favorite_border</mat-icon>
+        <mat-icon *ngIf="item.favorite" (click)="markFavorite(item)" class="favorite_icon">favorite</mat-icon>
+        <!-- <mat-icon color="red">favorite</mat-icon> -->
+        <img class="house-image" src="{{getFirstImage(item.accommodationInfo.photo)}}">
+        <div class="card-content" routerLink="['details/{{item.accommodationId}}']" (click)="navigateDetails(item.accommodationId)">
+            <div class="card-header">{{item.accommodationInfo.name}}</div>
+            <div class="characteriscit-container">
+                <div class="characteristic">{{item.accommodationInfo.bedCount}} bed</div>
+                <div class="characteristic">{{item.accommodationInfo.guestCount}} guest</div>
+                <div class="characteristic">{{item.accommodationInfo.roomCount}} room</div>
+            </div>
+            <div class="reviews-price-container">
+                <div class="review">
+                    <mat-icon class="star-icon" style="color:#e8324f">star</mat-icon>
+                    <div class="rating">5.0</div>
+                    <div class="review-count">(105 reviews)</div>
+                </div>
+                <div class="price-container">${{item.accommodationInfo.pricePerDay}}/night</div>
+            </div>
+        </div>
+       
+    </div>
+</div>

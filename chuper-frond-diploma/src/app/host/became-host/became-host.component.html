@@ -3,34 +3,28 @@
         <form [formGroup]="hostForm" >
             <div class="form-field">
                 <div class="form-field-text">
-                    Where’s your place located?
+                    Please enter name of your house
                 </div>
                 <mat-form-field appearance="fill">
-                    <mat-label>Where’s your place located?</mat-label>
-                    <input formControlName="located" matInput>
+                    <mat-label>Please enter name of your house</mat-label>
+                    <input formControlName="name" matInput>
                   </mat-form-field>
             </div>
             <div class="form-field">
                 <div class="form-field-text">
-                    What kind of place are you listing?
+                    select type of accommodation
                 </div>
                 
                 <mat-form-field appearance="fill">
                     <mat-label>What kind of place are you listing?</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="type">
                       <mat-option *ngFor="let type of houseTypes" [value]="type.value">
                         {{type.viewValue}}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
             </div>
-            <div class="form-field">
-                <div class="form-field-text">
-                    How many guests can your place accommodate?
-                </div>
-
-            </div>
-             
+            <button mat-raised-button (click)="submit()">sumbit</button>
         </form>
     </div>
     <div class="became-host-text">

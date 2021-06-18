@@ -1,30 +1,70 @@
-<app-main-page-header></app-main-page-header>
+<!-- <app-main-page-header></app-main-page-header> -->
 <div class="container">
     <div class="search-container">
-        <div class="search-bar">search bar</div>
+        <div class="search-bar">
+            <div class="container">
+                <form [formGroup]="searchForm" class="searchForm">
+                    <div class="search-sub-container">
+                        <mat-form-field class="search-element">
+                            <mat-label>Place to go</mat-label>
+                            <input formControlName="placeToGo" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="search-element">
+                            <mat-label>Enter a date range</mat-label>
+                            <mat-date-range-input [rangePicker]="picker">
+                              <input matStartDate formControlName="startDate" placeholder="Start date">
+                              <input matEndDate formControlName="endDate" placeholder="End date">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-date-range-picker #picker></mat-date-range-picker>
+                        </mat-form-field>
+                        <button mat-button  class="sumbit-button" (click)="submit()">
+                            Search
+                        </button>
+                    </div>
+                    <div class="search-sub-container">
+                        <mat-form-field class="search-element">
+                            <mat-label>Min price</mat-label>
+                            <input formControlName="priceMin" matInput>
+                          </mat-form-field>
+                          <mat-form-field class="search-element">
+                            <mat-label>Max price</mat-label>
+                            <input formControlName="priceMax" matInput>
+                          </mat-form-field> 
+                          <mat-radio-group formControlName="type">
+                            <mat-radio-button class="example-radio-button" *ngFor="let type of houseTypes" [value]="type.value">  
+                                {{type.viewValue}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>  
+                </form>
+            </div>
+        </div>
         <div class="house-cards-container">
-            <div class="house-card">
-                <img class="house-image" src="https://czech-rurepublic-gb.ru/wp-content/uploads/2015/12/blog-0558867001401302085.jpg">
-                <div class="card-content">
-                    <div class="card-header">Квартира-студия в самом центре Гомеля</div>
+            <div class="house-card" *ngFor="let item of accommodations" >
+                <mat-icon *ngIf="!item.favorite" (click)="markFavorite(item)" class="favorite_icon">favorite_border</mat-icon>
+                <mat-icon *ngIf="item.favorite" (click)="markFavorite(item)" class="favorite_icon">favorite</mat-icon>
+                <img class="house-image" src="{{getFirstImage(item.accommodationInfo.photo)}}">
+                <div class="card-content" routerLink="['details/{{item.accommodationId}}']" (click)="navigateDetails(item.accommodationId)">
+                    <div class="card-header">{{item.accommodationInfo.name}}</div>
                     <div class="characteriscit-container">
-                        <div class="characteristic">2 guests</div>
-                        <div class="characteristic">1 bedroom</div>
-                        <div class="characteristic">1 bed</div>
-                        <div class="characteristic">1 bath</div>
+                        <div class="characteristic">{{item.accommodationInfo.bedCount}} bed</div>
+                        <div class="characteristic">{{item.accommodationInfo.guestCount}} guest</div>
+                        <div class="characteristic">{{item.accommodationInfo.roomCount}} room</div>
                     </div>
                     <div class="reviews-price-container">
                         <div class="review">
                             <mat-icon class="star-icon" style="color:#e8324f">star</mat-icon>
-                            <div class="rating">5.0</div>
-                            <div class="review-count">(105 reviews)</div>
+                            <div class="rating">{{item.rating}}</div>
+                            <div class="review-count">({{item.countReview}} reviews)</div>
                         </div>
-                        <div class="price-container">$27/night</div>
+                        <div class="price-container">${{item.accommodationInfo.pricePerDay}}/night</div>
                     </div>
                 </div>
                
             </div>
         </div>
+        
     </div>
     <div class="map-container" id="mapContainer">
             

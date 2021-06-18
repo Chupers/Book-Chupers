@@ -1,10 +1,14 @@
 <div class="container">
-    <div class="nav-logo-element nav-element">EASYHOME</div>
-    <button class="nav-host-element nav-element" (click)="navigateToBeHost()">Кent an apartment</button>
+    <div class="nav-logo-element nav-element" routerLink="/">EASYHOME</div>
+    <button *ngIf="!account.host" mat-button class="nav-host-element nav-element" (click)="navigateToBeHost()">Кent an apartment</button>
     <mat-icon  [matMenuTriggerFor]="menu" class="nav-login-element nav-element">account_circle</mat-icon>
 </div>
 <mat-menu #menu="matMenu">
+    <div *ngIf="isLogin" class="account-name">{{account.userFacade.userName}}</div>
     <button mat-menu-item *ngIf="!isLogin" (click)="signUp()">Sign Up</button>
     <button mat-menu-item *ngIf="!isLogin" (click)="login()">Sign In</button>
     <button mat-menu-item *ngIf="isLogin" (click)="logout()">Logout</button>
+    <button mat-menu-item *ngIf="isLogin" (click)="navigateToAccount()">Account</button>
+    <button mat-menu-item  (click)="navigateToAcc()">My accommodation</button>
+    <button mat-menu-item *ngIf="isLogin" (click)="navigateToFavorite()">Favorite</button>
 </mat-menu>

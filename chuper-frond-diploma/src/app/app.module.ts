@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
@@ -29,6 +30,16 @@ import { RegistationComponent } from './dialog/registation/registation.component
 import {MatDialogModule} from '@angular/material/dialog';
 import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { TokenInterceptor } from './TokenInterceptor';
+import { HostHomePageComponent } from './host/host-home-page/host-home-page.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AccountComponent } from './account/account.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { FavoriteComponent } from './favorite/favorite.component';
+
 
 @NgModule({
   declarations: [
@@ -45,29 +56,39 @@ import { TokenInterceptor } from './TokenInterceptor';
     BecameHostComponent,
     LoginComponent,
     RegistationComponent,
+    HostHomePageComponent,
+    AccountComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
     MatMenuModule,
+    MatPaginatorModule,
+    MatTabsModule,
     MatIconModule,
     HttpClientModule,
+    MatSnackBarModule,
+    MatTableModule,
     MatButtonModule,
     MatDialogModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatSliderModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatRadioModule,
   ],
 
   providers: [
     {provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

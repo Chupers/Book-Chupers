@@ -18,3 +18,9 @@
     display: flex;
     flex-direction: column;
 }
+
+.host-form{
+    margin: 4rem;
+    display: flex;
+    justify-content: center;
+}
